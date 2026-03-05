@@ -31,6 +31,7 @@ def main():
             server_port = int(data["server_port"])
             message = data["message"]
 
+            # client to server message according to template
             print("------------------------------")
             print("Received from Client:")
             print("------------------------------")
@@ -41,7 +42,7 @@ def main():
             print("}")
             print("------------------------------")
 
-            # Blocklist check
+            # this checks the blocklist
             if server_ip in IP_BLOCKLIST:
                 blocked_reply = "Blocklist Error"
                 print("Sent to Client:")
@@ -51,7 +52,7 @@ def main():
                 client_conn.sendall(blocked_reply.encode("utf-8"))
                 return
 
-            # Forward ONLY the message to the server
+            # send message to server and get reply
             print("Sent to Server:")
             print("------------------------------")
             print(f"\"{message}\"")
@@ -62,6 +63,7 @@ def main():
                 to_server.sendall(message.encode("utf-8"))
                 server_reply = to_server.recv(4096).decode("utf-8", errors="replace")
 
+            # server to client message according to template
             print("------------------------------")
             print("Received from Server:")
             print("------------------------------")

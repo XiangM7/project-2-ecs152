@@ -3,8 +3,8 @@ import socket
 HOST = "127.0.0.1"
 PORT = 7000
 
+# handle the message: ping, pong, or reversed string
 def handle_message(msg: str) -> str:
-    # Exactly as spec: Ping<->Pong, else reverse (for any other 4-char string)
     if msg == "Ping":
         return "Pong"
     if msg == "Pong":
@@ -25,6 +25,7 @@ def main():
 
             incoming = data.decode("utf-8", errors="replace")
 
+            # server response according to template
             print("------------------------------")
             print("Received from Proxy:")
             print("------------------------------")
