@@ -18,6 +18,7 @@ def main():
         s.listen(5)
 
         conn, addr = s.accept()
+        proxy_ip = addr[0]
         with conn:
             data = conn.recv(4096)
             if not data:

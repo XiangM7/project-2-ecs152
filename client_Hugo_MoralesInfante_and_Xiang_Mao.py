@@ -6,7 +6,7 @@ PROXY_IP = "127.0.0.1"
 PROXY_PORT = 6000
 
 
-SERVER_IP = "8.8.8.8"
+SERVER_IP = "127.0.0.1"
 SERVER_PORT = 7000
 
 def main():
