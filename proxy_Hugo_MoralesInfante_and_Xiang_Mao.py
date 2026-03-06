@@ -1,8 +1,8 @@
 import socket
 import json
 
-PROXY_HOST = "127.0.0.1"
-PROXY_PORT = 6000
+ProxyHost = "127.0.0.1"
+ProxyPort = 6000
 
 #IP blacklist
 IP_BLOCKLIST = {
@@ -14,7 +14,7 @@ IP_BLOCKLIST = {
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as proxy:
         proxy.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        proxy.bind((PROXY_HOST, PROXY_PORT))
+        proxy.bind((ProxyHost, ProxyPort))
         proxy.listen(5)
 
         client_conn, client_addr = proxy.accept()

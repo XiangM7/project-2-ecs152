@@ -1,7 +1,7 @@
 import socket
 
-HOST = "127.0.0.1"
-PORT = 7000
+Host = "127.0.0.1"
+Port = 7000
 
 # handle the message
 def handle_message(msg: str) -> str:
@@ -14,7 +14,7 @@ def handle_message(msg: str) -> str:
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        s.bind((HOST, PORT))
+        s.bind((Host, Port))
         s.listen(5)
 
         conn, addr = s.accept()

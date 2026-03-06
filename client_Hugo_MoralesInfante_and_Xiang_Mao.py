@@ -2,12 +2,12 @@ import socket
 import json
 import sys
 
-PROXY_IP = "127.0.0.1"
-PROXY_PORT = 6000
+Proxy_IP = "127.0.0.1"
+Proxy_Port = 6000
 
 
-SERVER_IP = "127.0.0.1"
-SERVER_PORT = 7000
+Server_IP = "127.0.0.1"
+Server_Port = 7000
 
 def main():
     if len(sys.argv) != 2:
@@ -17,8 +17,8 @@ def main():
     client_message = sys.argv[1]
 
     payload = {
-        "server_ip": SERVER_IP,
-        "server_port": SERVER_PORT,
+        "server_ip": Server_IP,
+        "server_port": Server_Port,
         "message": client_message
     }
 
@@ -33,7 +33,7 @@ def main():
     print("----------------------------")
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((PROXY_IP, PROXY_PORT))
+        s.connect((Proxy_IP, Proxy_Port))
         s.sendall(json.dumps(payload).encode("utf-8"))
         reply = s.recv(4096).decode("utf-8", errors="replace")
 
