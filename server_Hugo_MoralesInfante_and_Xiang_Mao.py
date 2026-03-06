@@ -4,7 +4,7 @@ Host = "127.0.0.1"
 Port = 7000
 
 # handle the message
-def handle_message(msg: str) -> str:
+def message(msg: str) -> str:
     if msg == "Ping":
         return "Pong"
     if msg == "Pong":
@@ -34,7 +34,7 @@ def main():
             print(f"\"{incoming}\"")
             print("----------------------------")
 
-            reply = handle_message(incoming)
+            reply = message(incoming)
 
             print("Sent to Proxy:")
             print("----------------------------")

@@ -5,7 +5,7 @@ ProxyHost = "127.0.0.1"
 ProxyPort = 6000
 
 #IP blacklist
-IP_BLOCKLIST = {
+IP_blocklist = {
     "10.0.0.1",
     "192.168.1.50",
     "8.8.8.8",
@@ -43,7 +43,7 @@ def main():
             print("----------------------------")
 
             #checks the blocklist
-            if server_ip in IP_BLOCKLIST:
+            if server_ip in IP_blocklist:
                 blocked_reply = "Blocklist Error"
                 print("Sent to Client:")
                 print("----------------------------")
