@@ -143,9 +143,9 @@ def query_dns_server(server_ip: str, domain: str, qtype: int = 1, timeout: float
 
 
 def print_query_block(server_ip: str, domain: str, records, rtt_ms: float):
-    print("----------------------------------------")
+    print("--------------------------------------------")
     print(f"Querying {server_ip} for {domain}")
-    print("----------------------------------------")
+    print("--------------------------------------------")
     for rr in records:
         print(f"{rr['type_name']} : {rr['value']}")
     print(f"RTT: {rtt_ms:.2f} ms")
@@ -250,9 +250,9 @@ def main():
         print("Resolution failed")
         return
 
-    print("----------------------------------------")
+    print("--------------------------------------------")
     print(f"Making HTTP request to {final_ip}")
-    print("----------------------------------------")
+    print("--------------------------------------------")
     status_code, http_rtt = make_http_request(final_ip, domain)
     print(status_code)
     print(f"RTT: {http_rtt:.2f} ms")

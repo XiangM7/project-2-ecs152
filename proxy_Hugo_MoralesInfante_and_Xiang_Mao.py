@@ -32,31 +32,31 @@ def main():
             message = data["message"]
 
             # client to server message 
-            print("------------------------------")
+            print("----------------------------")
             print("Received from Client:")
-            print("------------------------------")
+            print("----------------------------")
             print("data = {")
             print(f"\"server_ip\": \"{server_ip}\"")
             print(f"\"server_port\": {server_port}")
             print(f"\"message\": \"{message}\"") 
             print("}")
-            print("------------------------------")
+            print("----------------------------")
 
             #checks the blocklist
             if server_ip in IP_BLOCKLIST:
                 blocked_reply = "Blocklist Error"
                 print("Sent to Client:")
-                print("------------------------------")
+                print("----------------------------")
                 print(f"\"{blocked_reply}\"")
-                print("------------------------------")
+                print("----------------------------")
                 client_conn.sendall(blocked_reply.encode("utf-8"))
                 return
 
             # send message to server 
             print("Sent to Server:")
-            print("------------------------------")
+            print("----------------------------")
             print(f"\"{message}\"")
-            print("------------------------------")
+            print("----------------------------")
 
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as to_server:
                 to_server.connect((server_ip, server_port))
@@ -64,16 +64,16 @@ def main():
                 server_reply = to_server.recv(4096).decode("utf-8", errors="replace")
 
             # server to client message 
-            print("------------------------------")
+            print("----------------------------")
             print("Received from Server:")
-            print("------------------------------")
+            print("----------------------------")
             print(f"\"{server_reply}\"")
-            print("------------------------------")
+            print("----------------------------")
 
             print("Sent to Client:")
-            print("------------------------------")
+            print("----------------------------")
             print(f"\"{server_reply}\"")
-            print("------------------------------")
+            print("----------------------------")
 
             client_conn.sendall(server_reply.encode("utf-8"))
 

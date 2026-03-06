@@ -27,18 +27,18 @@ def main():
 
             # server response 
         
-            print("------------------------------")
+            print("----------------------------")
             print("Received from Proxy:")
-            print("------------------------------")
+            print("----------------------------")
             print(f"\"{incoming}\"")
-            print("------------------------------")
+            print("----------------------------")
 
             reply = handle_message(incoming)
 
             print("Sent to Proxy:")
-            print("------------------------------")
+            print("----------------------------")
             print(f"\"{reply}\"")
-            print("------------------------------")
+            print("----------------------------")
 
             conn.sendall(reply.encode("utf-8"))
 
